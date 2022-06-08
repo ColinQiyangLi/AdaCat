@@ -1,0 +1,20 @@
+param: adacat
+n_comps: 128
+dataset: MNIST
+fixed_x: False
+fixed_y: False
+metric_type: bpd
+n_embd: 768
+
+# training
+batch_size: 20
+n_gpus: 1
+n_epochs: 100
+seed: 111
+lr: 0.0003
+grad_norm_clip: 1.0
+weight_decay: 0.1
+
+# architecture
+n_layers: 4
+n_head: 4
