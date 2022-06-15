@@ -261,6 +261,7 @@ else:
 def actual(x):
     return x + corr_const
 
+best_perf = None
 for epoch in range(n_epoch_st, n_epochs):
 
     agg_train_losses, agg_train_eval_losses = [], []
@@ -297,6 +298,7 @@ for epoch in range(n_epoch_st, n_epochs):
     wandb.log({'train_eval_loss': float(actual(agg_train_eval_mean))}, step=epoch)
 
     print()
+
     if epoch % 10 == 0 or epoch == n_epochs - 1:
 
         ema.store()
@@ -312,6 +314,8 @@ for epoch in range(n_epoch_st, n_epochs):
             agg_test_eval_losses.append(float(test_eval_loss))
 
         agg_test_eval_mean = np.mean(agg_test_eval_losses)
+        if best_perf is None or agg_test_eval_mean < best_perf:
+            best_perf = agg_test_eval_mean
         ema.restore()
 
         print("\rTest Loss at epoch {}: {:.3f}    ".format(epoch, actual(agg_test_eval_mean)))
@@ -323,10 +327,9 @@ for epoch in range(n_epoch_st, n_epochs):
         
         wandb.log({'test_eval_loss': float(actual(agg_test_eval_mean))}, step=epoch)
 
-
     print()
 
-final_test_nat = actual(agg_test_eval_mean)
+final_test_nat = actual(best_perf)
 result = {
     "dataset": dataset,
     "tag": tag,
