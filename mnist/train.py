@@ -67,10 +67,10 @@ with open(args.base_config, "r") as stream:
 
 config = manual_parse(unknown, base_config, verbose=args.verbose)
 
+name = "-".join(["{key}:{value}".format(key=key[2:], value=value) for key, value in zip(unknown[::2], unknown[1::2])])
+print("Experiment Name:", name)
 if args.wandb_log:
-    name = "-".join(["{key}:{value}".format(key=key[2:], value=value) for key, value in zip(unknown[::2], unknown[1::2])])
     print("Project Name:", args.project_name)
-    print("Experiment Name:", name)
     wandb.init(project=args.project_name, name=name, config=config, entity=args.entity)
 
     config = wandb.config
@@ -222,5 +222,7 @@ tconf = TrainerConfig(
 )
 trainer = Trainer(model, train_dataset, test_dataset, tconf, param=param, wandb_log=args.wandb_log)
 
-for _ in trainer.train():
+for epoch, _, best_loss in trainer.train():
     pass
+
+print("[{}] [{}] -- Best Test Loss: {:.4f}".format(name, epoch, best_loss))

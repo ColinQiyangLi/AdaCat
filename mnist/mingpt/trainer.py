@@ -151,7 +151,7 @@ class Trainer:
 
         best_loss = float('inf')
         self.tokens = 0 # counter used for learning rate decay
-        yield 0, 0
+        yield 0, 0, best_loss
 
         curr_it = 0
         for epoch in range(config.max_epochs):
@@ -160,7 +160,6 @@ class Trainer:
             curr_it = info['curr_it']
             if self.wandb_log:
                 wandb.log({'train_eval_loss': train_eval_loss}, step=curr_it)
-                # wandb.log(info, step=curr_it)
             if self.test_dataset is not None:
                 test_eval_loss, _ = run_epoch('test', epoch=epoch, curr_it=curr_it)
                 if self.wandb_log:
@@ -172,4 +171,4 @@ class Trainer:
                 best_loss = test_eval_loss
                 self.save_checkpoint(ema)
 
-            yield epoch + 1, curr_it
+            yield epoch + 1, curr_it, best_loss
