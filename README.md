@@ -16,7 +16,7 @@ cd tto && pip install -e .
 ```
 
 # What is in this Repo
-Code for reproducing the experiments in [https://openreview.net/forum?id=HMzzPOLs9l5](ADACAT: Adaptive Categorical Discretization for Autoregressive Models)
+Code for reproducing the experiments in [ADACAT: Adaptive Categorical Discretization for Autoregressive Models](https://openreview.net/forum?id=HMzzPOLs9l5)
 
 # Citation
 The bibtex is provided below for citation covenience.
