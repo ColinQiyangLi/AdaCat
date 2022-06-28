@@ -9,3 +9,6 @@ Download the tabular datasets following the instructions in https://github.com/g
 ```
 
 The results will be available in `logs/final.json`.
+
+## Acknowledgements
+The data preprocessing pipeline is directly from https://github.com/gpapamak/maf.
