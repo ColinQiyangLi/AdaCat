@@ -1,4 +1,15 @@
-# Setup
+# Adaptive Categorical Discretization (AdaCat)
+## What is in this Repo
+Code for reproducing the experiments in [ADACAT: Adaptive Categorical Discretization for Autoregressive Models](https://openreview.net/forum?id=HMzzPOLs9l5). The codebase is organized as a collections of four different smaller codebases:
+- `mnist/` -- image generation for MNIST dataset (Figure 4 and Table 2)
+- `tabular/` -- generative modeling on UCI datasets (Table 1)
+- `tto/` -- offline reinforcement learning on mujoco locomotion tasks (Table 4)
+- `wavenet/` -- audio generation on LJSpeech dataset (Table 3)
+
+Please refer to the `README.md` under each folder for commands that reproduce the experiments in the paper.
+
+
+## Common Setup Steps 
 Tested with `torch==1.11.0`, `torchvision==0.12.0`
 
 ```
@@ -15,16 +26,7 @@ pip install git+https://github.com/rail-berkeley/d4rl@master#egg=d4rl
 cd tto && pip install -e . 
 ```
 
-# What is in this Repo
-Code for reproducing the experiments in [ADACAT: Adaptive Categorical Discretization for Autoregressive Models](https://openreview.net/forum?id=HMzzPOLs9l5). The codebase is organized as a collections of four different smaller codebases:
-- `mnist/` -- image generation for MNIST dataset (Figure 4 and Table 2)
-- `tabular/` -- generative modeling on UCI datasets (Table 1)
-- `tto/` -- offline reinforcement learning on mujoco locomotion tasks (Table 4)
-- `wavenet/` -- audio generation on LJSpeech dataset (Table 3)
-
-Please refer to the `README.md` under each folder for commands that reproduce the experiments in the paper.
-
-# Citation
+## Citation
 The bibtex is provided below for citation covenience.
 ```
 @inproceedings{
