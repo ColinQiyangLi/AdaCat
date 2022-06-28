@@ -266,7 +266,6 @@ for epoch in range(n_epoch_st, n_epochs):
 
     agg_train_losses, agg_train_eval_losses = [], []
 
-    print("Epoch {}".format(epoch))
     for x in batch_iter(data.trn.x, batch_size=batch_size, shuffle=True):
         
         x = x.to(device=device)
@@ -290,14 +289,12 @@ for epoch in range(n_epoch_st, n_epochs):
         agg_train_mean = np.mean(agg_train_losses)
         agg_train_eval_mean = np.mean(agg_train_eval_losses)
 
-        print("\rTrain Loss: {:.3f} [{:.3f}] (avg: {:.3f} [{:.3f}]) lr={}   ".format(actual(train_loss), actual(train_eval_loss), actual(agg_train_mean), actual(agg_train_eval_mean), scheduler.get_last_lr()), end="")
+        print("\r[Epoch {}] Train Loss: {:.3f} [{:.3f}] (avg: {:.3f} [{:.3f}]) lr={}   ".format(epoch, actual(train_loss), actual(train_eval_loss), actual(agg_train_mean), actual(agg_train_eval_mean), scheduler.get_last_lr()), end="")
     
     scheduler.step()
 
     wandb.log({'train_loss': float(actual(agg_train_mean))}, step=epoch)
     wandb.log({'train_eval_loss': float(actual(agg_train_eval_mean))}, step=epoch)
-
-    print()
 
     if epoch % 10 == 0 or epoch == n_epochs - 1:
 
@@ -318,7 +315,7 @@ for epoch in range(n_epoch_st, n_epochs):
             best_perf = agg_test_eval_mean
         ema.restore()
 
-        print("\rTest Loss at epoch {}: {:.3f}    ".format(epoch, actual(agg_test_eval_mean)))
+        print("\rTest Loss at epoch {}: {:.3f}    ".format(epoch, actual(agg_test_eval_mean)), end="")
         
         if epoch == n_epochs - 1:
             ckpt_dir = get_ckpt_dir(epoch=epoch if epoch != n_epochs else None)
@@ -327,9 +324,11 @@ for epoch in range(n_epoch_st, n_epochs):
         
         wandb.log({'test_eval_loss': float(actual(agg_test_eval_mean))}, step=epoch)
 
-    print()
-
 final_test_nat = actual(best_perf)
+
+print()
+print("{} -- Final Performance: {:.4f}".format(exp_name, final_test_nat))
+
 result = {
     "dataset": dataset,
     "tag": tag,
@@ -357,4 +356,3 @@ data[exp_name] = final_test_nat
 with open(database_dir, "w") as f:
     json.dump(data, f, indent=4)
 
-print("database updated successfully at {}".format(database_dir))
