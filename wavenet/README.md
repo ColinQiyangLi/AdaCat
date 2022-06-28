@@ -38,10 +38,12 @@ Generate quantized features, stored in `egs/<subdir>/dump`:
 ln -s adacat512/dump adacat30/dump
 ln -s adacat512/dump adacat256/dump
 
-# Gaussian: continuous features.
-./run.sh mol 1
-
 # Mixture of Logistics: continous features.
+./run.sh mol30 1
+ln -s mol30/dump mol255/dump
+ln -s mol30/dump mol513/dump
+
+# Gaussian: continuous features.
 ./run.sh gaussian 1
 ```
 
@@ -57,6 +59,10 @@ cd egs
 ./run.sh adacat30 2
 ./run.sh adacat256 2
 ./run.sh adacat512 2
+./run.sh mol30 2
+./run.sh mol255 2
+./run.sh mol513 2
+./run.sh gaussian 2
 ```
 
 ## Evaluate likelihood
@@ -66,6 +72,16 @@ cd egs
 ./run_cat.sh cat30 3 3 --likelihood-only
 ./run_cat.sh cat256 3 3 --likelihood-only
 ./run_cat.sh cat512 3 3 --likelihood-only
+./run_cat.sh mulaw30 3 3 --likelihood-only
+./run_cat.sh mulaw256 3 3 --likelihood-only
+./run_cat.sh mulaw512 3 3 --likelihood-only
+./run_cat.sh adacat30 3 3 --likelihood-only
+./run_cat.sh adacat256 3 3 --likelihood-only
+./run_cat.sh adacat512 3 3 --likelihood-only
+./run_cat.sh mol30 3 3 --likelihood-only
+./run_cat.sh mol255 3 3 --likelihood-only
+./run_cat.sh mol513 3 3 --likelihood-only
+./run_cat.sh gaussian 3 3 --likelihood-only
 ```
 
 ## Generating samples
