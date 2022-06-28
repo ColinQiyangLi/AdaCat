@@ -41,4 +41,5 @@ url={https://openreview.net/forum?id=HMzzPOLs9l5}
 The codebase is built on top of multiple publicly available repos:
 - Michael Janner's [trajectory_transformer](https://github.com/jannerm/trajectory-transformer).
 - Andrej Karpathy's [minGPT](https://github.com/karpathy/minGPT).
+- Truncated Normal Distribution: https://github.com/toshas/torch_truncnorm
 

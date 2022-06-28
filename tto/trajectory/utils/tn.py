@@ -1,3 +1,8 @@
+"""
+Code heavily borrowed from
+https://github.com/toshas/torch_truncnorm
+"""
+
 import math
 from numbers import Number
 

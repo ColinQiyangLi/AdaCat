@@ -1,5 +1,6 @@
 """
-This file is built on top of the codebase here https://github.com/toshas/torch_truncnorm
+Code heavily borrowed from
+https://github.com/toshas/torch_truncnorm
 """
 
 import math
