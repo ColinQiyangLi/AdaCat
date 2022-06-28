@@ -8,11 +8,12 @@ Data processing, training and evaluation proceed in stages indexed 0 through 3.
 
 ## Data processing
 ### Download LJSpeech data
-Download data to `data/LJSpeech-1.1`:
+Download data to `data/LJSpeech-1.1` from https://keithito.com/LJ-Speech-Dataset/. Make sure there is a `data/LJSpeech-1.1/wavs` subdirectory.
 ```
 mkdir data
-# Download LJSpeech-1.1
-# TODO
+cd data
+wget https://data.keithito.com/data/speech/LJSpeech-1.1.tar.bz2
+tar -xvf LJSpeech-1.1.tar.bz2
 ```
 
 ### Process data
