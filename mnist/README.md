@@ -1,3 +1,5 @@
+# MNIST Density Modeling with AdaCat
+
 This folder contains the code to reproduce the experiments in Figure 4 and Table 2 of the paper.
 
 To reproduce the results in the paper, run

@@ -18,5 +18,7 @@ We have provided [pretrained models](https://www.dropbox.com/s/1u6j0ybe0l4vh1l/a
 
 We also have provided [rollous](https://www.dropbox.com/s/6q5tsgl2kxriimh/adaca-d4rl-logs-wplan.zip?dl=0) for these pretrained models (3 rollouts for each model). Download them with `./pretrained_with_plan.sh` (will be stored in `logs_wplan`).
 
+Run `check_results.py` to obtain a summary of the planning results stored in `logs`.
+
 ## Acknowledgements
 The codebase is modified from Michael Janner's [trajectory_transformer](https://github.com/jannerm/trajectory-transformer) repo.
