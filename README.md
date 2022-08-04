@@ -6,7 +6,7 @@ We have a pip-installable package for PyTorch users ([Colab demo](https://colab.
 ![](demo_2d.gif)
 
 ## What is in this Repo
-Code for reproducing the experiments in [ADACAT: Adaptive Categorical Discretization for Autoregressive Models](https://openreview.net/forum?id=HMzzPOLs9l5). The codebase is organized as a collections of four different smaller codebases:
+Code for reproducing the experiments in [AdaCat: Adaptive Categorical Discretization for Autoregressive Models](https://arxiv.org/abs/2208.02246). The codebase is organized as a collections of four different smaller codebases:
 - `mnist/` -- image generation for MNIST dataset (Figure 4 and Table 2)
 - `tabular/` -- generative modeling on UCI datasets (Table 1)
 - `tto/` -- offline reinforcement learning on mujoco locomotion tasks (Table 4)
