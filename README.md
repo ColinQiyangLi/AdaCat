@@ -1,5 +1,8 @@
 # Adaptive Categorical Discretization (AdaCat)
 
+## AdaCat from DALL E
+![](adacat_dalle.jpg)
+
 ## News (08/04/2022)
 We have a pip-installable package for PyTorch users ([Colab demo](https://colab.research.google.com/drive/1dVOJpiJLXtAK_O68Tt4995dYU5BU-1S0?usp=sharing)) and JAX distrax ([Colab demo](https://colab.research.google.com/drive/14KPbk9MUqG3TyOySuZ-vK_fg9Kkld6Bs?usp=sharing)) users! [Website](https://colinqiyangli.github.io/adacat/)
 
