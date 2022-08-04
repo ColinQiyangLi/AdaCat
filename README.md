@@ -1,4 +1,10 @@
 # Adaptive Categorical Discretization (AdaCat)
+
+## News (08/04/2022)
+We have a pip-installable package for PyTorch users ([Colab demo](https://colab.research.google.com/drive/1dVOJpiJLXtAK_O68Tt4995dYU5BU-1S0?usp=sharing)) and JAX distrax ([Colab demo](https://colab.research.google.com/drive/14KPbk9MUqG3TyOySuZ-vK_fg9Kkld6Bs?usp=sharing)) users! [Website](https://colinqiyangli.github.io/adacat/)
+
+![](demo_2d.gif)
+
 ## What is in this Repo
 Code for reproducing the experiments in [ADACAT: Adaptive Categorical Discretization for Autoregressive Models](https://openreview.net/forum?id=HMzzPOLs9l5). The codebase is organized as a collections of four different smaller codebases:
 - `mnist/` -- image generation for MNIST dataset (Figure 4 and Table 2)
@@ -7,7 +13,6 @@ Code for reproducing the experiments in [ADACAT: Adaptive Categorical Discretiza
 - `wavenet/` -- audio generation on LJSpeech dataset (Table 3)
 
 Please refer to the `README.md` under each folder for commands that reproduce the experiments in the paper.
-
 
 ## Common Setup Steps 
 Tested with `torch==1.11.0`, `torchvision==0.12.0`
